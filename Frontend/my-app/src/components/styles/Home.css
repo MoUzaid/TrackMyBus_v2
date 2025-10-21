@@ -1,0 +1,216 @@
+/* 🌐 Full Page Layout */
+.home-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  padding: 3vh 5vw;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+  position: relative;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+/* Decorative Gradient Circles */
+.home-layout::before,
+.home-layout::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.home-layout::before {
+  width: 25vw;
+  height: 25vw;
+  background: rgba(0, 115, 230, 0.3);
+  top: -5vh;
+  left: -5vw;
+}
+
+.home-layout::after {
+  width: 28vw;
+  height: 28vw;
+  background: rgba(0, 64, 128, 0.25);
+  bottom: -10vh;
+  right: -8vw;
+}
+
+/* ⬅️ Left Section */
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers vertically */
+  align-items: flex-start;
+  padding-right: 5vw;
+  position: relative;
+  z-index: 1;
+  min-width: 300px;
+  margin-bottom:40vh;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #003366;
+  margin-bottom: 1.5rem;
+}
+
+.hero-btn {
+  padding: 1rem 2.2rem;
+  background: linear-gradient(90deg, #0073e6, #004080);
+  border: none;
+  color: #fff;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0px 6px 18px rgba(0, 115, 230, 0.4);
+}
+
+.hero-btn:hover {
+  background: linear-gradient(90deg, #004080, #0073e6);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* ➡️ Right Section */
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  min-width: 300px;
+  margin-top: 2vh;
+}
+
+/* 🪟 Profile Card - Glassmorphism */
+.profile-card {
+  width: 90%;
+  max-width: 380px;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* 👤 Header */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.avatar {
+  font-size: clamp(2rem, 5vw, 3rem);
+  background: linear-gradient(135deg, #0073e6, #004080);
+  color: #fff;
+  border-radius: 50%;
+  width: clamp(70px, 20vw, 95px);
+  height: clamp(70px, 20vw, 95px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+  box-shadow: 0px 6px 18px rgba(0, 115, 230, 0.4);
+}
+
+.username {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 700;
+  color: #003366;
+  margin-top: 5px;
+}
+
+.role {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  color: #444;
+  opacity: 0.8;
+}
+
+/* 📋 Body */
+.profile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-body p {
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 12px;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  font-weight: 500;
+  color: #222;
+  box-shadow: inset 0px 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.profile-body p:hover {
+  transform: translateX(5px);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .home-layout {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6vh 5vw;
+  }
+
+  .left-section {
+    align-items: center;
+    padding: 0;
+    margin-bottom: 3vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero-btn {
+    font-size: 1rem;
+  }
+
+  .right-section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-btn {
+    padding: 0.9rem 1.6rem;
+    font-size: 0.95rem;
+  }
+
+  .profile-body p {
+    font-size: 0.9rem;
+    padding: 0.7rem 0.9rem;
+  }
+}

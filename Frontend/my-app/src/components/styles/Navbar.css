@@ -1,0 +1,138 @@
+/* === NAVBAR BASE === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: #ffffff;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #004aad;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+/* === LOGIN / SIGNUP BUTTONS === */
+a.nav-link {
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  background: #f5f7ff;
+  color: #004aad;
+  border: 1.5px solid #d3ddff;
+  transition: all 0.35s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+a.nav-link:hover {
+  background: linear-gradient(135deg, #4e8cff, #004aad);
+  color: #fff !important;
+  box-shadow: 0 4px 15px rgba(0, 90, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* === LOGOUT BUTTON === */
+.btn-link {
+  background: linear-gradient(135deg, #ff5e62, #ff9966);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 3px 10px rgba(255, 100, 70, 0.25);
+  margin-left: 10px;
+}
+
+.btn-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 100, 70, 0.35);
+  background: linear-gradient(135deg, #ff4b2b, #ff9068);
+}
+
+/* === WELCOME TEXT === */
+.welcome {
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.3px;
+  font-size: 1.2rem;
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.7rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    gap: 0.7rem;
+  }
+
+  .btn-link, a.nav-link {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .nav-item {
+    margin: 3px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .btn-link, a.nav-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .welcome {
+    font-size: 0.8rem;
+  }
+}

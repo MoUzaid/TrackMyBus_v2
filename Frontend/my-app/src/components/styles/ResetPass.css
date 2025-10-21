@@ -1,0 +1,49 @@
+.reset-pass-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background-color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.reset-pass-container h2 {
+  margin-bottom: 1.5rem;
+  color: #004080;
+}
+
+.reset-pass-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reset-pass-form input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.reset-pass-form button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #004080;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reset-pass-form button:hover {
+  background: #0066cc;
+}
+
+.message {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: green;
+}

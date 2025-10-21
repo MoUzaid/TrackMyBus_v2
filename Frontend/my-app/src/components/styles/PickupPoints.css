@@ -1,0 +1,88 @@
+/* ✅ Full width container */
+.pickup-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #f9fafc;
+  padding: 40px 0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* Centers the pickup list and allows full width feel */
+.pickup-list {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ✅ Heading above first pickup point */
+.pickup-title-inside {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+  border-bottom: 3px solid #4f46e5;
+  padding-bottom: 6px;
+}
+
+/* Each pickup card */
+.pickup-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.pickup-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Pickup item layout */
+.pickup-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Circle number */
+.pickup-number {
+  background: #4f46e5;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Pickup name text */
+.pickup-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .pickup-list {
+    width: 95%;
+  }
+
+  .pickup-name {
+    font-size: 16px;
+  }
+
+  .pickup-title-inside {
+    font-size: 20px;
+  }
+}
