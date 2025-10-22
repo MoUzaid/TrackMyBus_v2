@@ -1,9 +1,38 @@
 {
   "version": 2,
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+    {
+      "src": "my-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "my-app/build",
+        "zeroConfig": true
+      }
+    }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+    {
+      "src": "/static/(.*)",
+      "dest": "/my-app/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/my-app/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/my-app/manifest.json"
+    },
+    {
+      "src": "/firebase-messaging-sw.js",
+      "dest": "/my-app/firebase-messaging-sw.js"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/my-app/index.html"
+    }
   ]
 }

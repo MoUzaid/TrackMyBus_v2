@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "workspaces": [
+    "my-app"
+  ],
+  "scripts": {
+    "build": "cd my-app && npm install && npm run build"
+  }
+}
