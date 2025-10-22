@@ -86,25 +86,24 @@ The system ensures accurate arrival notifications, complete admin control, and s
 ## 📸 Screenshots
 
 ### 🏠 Home Page  
-![Home Page](./public/screenshots/UserHome.png)
+![Home Page](./screenshots/UserHome.png)
 
 ### 🚌 Driver Home  
-![Driver Home](./public/screenshots/DriverHome.png)
-
-### 👨‍🎓 User & Driver Connection  
-![User Driver](./public/screenshots/UserDriver.png)
+![Driver Home](./screenshots/DriverHome.png)
 
 ### 🗺️ User Map  
-![User Map](./public/screenshots/UserMap.png)
+![User Map](./screenshots/UserMap.png)
 
 ### 🧭 Pickup Points  
-![Pickup Points](./public/screenshots/PickupPoints.png)
+![Pickup Points](./screenshots/PickupPoints.png)
 
 ### 🧩 Admin Dashboard  
-![Admin Dashboard](./public/screenshots/AdminDasboard.png)
+![Admin Dashboard](./screenshots/AdminDasboard.png)
 
 ### 🆕 Create Bus  
-![Create Bus](./public/screenshots/CreateBus.png)
+![Create Bus](./screenshots/CreateBus.png)
 
 ### 👩‍🎓 View Students  
-![View Students](./public/screenshots/ViewStudents.png)
+![View Students](./screenshots/ViewStudents.png)
+
+
