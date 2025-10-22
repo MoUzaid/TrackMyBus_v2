@@ -92,7 +92,6 @@ const LoginDriver = () => {
         )}
 
         <p className="auth-text">
-          Don’t have an account?{" "}
           <Link to="/forgot-password-driver" className="auth-link">
             Forgot Your Password
           </Link>
