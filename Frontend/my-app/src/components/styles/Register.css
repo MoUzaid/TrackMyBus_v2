@@ -1,66 +1,67 @@
+/* === REGISTER PAGE CONTAINER === */
 .register-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   padding: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
+/* === FORM STYLING === */
 .register-form {
   background-color: #ffffff;
-  padding: 30px 40px;
-  border-radius: 16px;
+  padding: 30px 35px;
+  border-radius: 14px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.3s ease;
+  max-width: 400px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .register-form h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 25px;
+  color: #222;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
-
+/* === INPUTS & SELECTS === */
 .register-form input,
 .register-form select {
+  display: block;
   width: 100%;
-  height: 48px; 
-  padding: 0 15px;
+  height: 45px;
+  padding: 0 14px;
   margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
   font-size: 15px;
+  box-sizing: border-box;
+  outline: none;
   transition: all 0.3s ease;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 
 .register-form input:focus,
 .register-form select:focus {
   border-color: #2575fc;
-  background-color: #fff;
-  box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
-  outline: none;
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
 }
 
-
+/* === BUTTON === */
 .register-form button {
   width: 100%;
-  height: 48px; 
+  height: 45px;
   margin-top: 15px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #2575fc;
-  color: white;
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -69,27 +70,10 @@
 
 .register-form button:hover {
   background-color: #1a5dcc;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-
-.success {
-  color: green;
-  text-align: center;
-  margin-top: 10px;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.error {
-  color: red;
-  text-align: center;
-  margin-top: 10px;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-
+/* === TEXT & LINKS === */
 .register-form p {
   margin-top: 15px;
   text-align: center;
@@ -107,48 +91,54 @@
   text-decoration: underline;
 }
 
-/* -------- Responsive Adjustments -------- */
+/* === MESSAGE STYLES === */
+.success {
+  color: green;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .register-form {
-    padding: 25px 30px;
-    max-width: 90%;
+    padding: 25px;
+    max-width: 360px;
   }
 
   .register-form h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .register-form input,
   .register-form select,
   .register-form button {
+    height: 43px;
     font-size: 14px;
-    height: 46px;
   }
 }
 
 @media (max-width: 480px) {
-  .register-container {
-    padding: 15px;
-  }
-
   .register-form {
     padding: 20px;
-    border-radius: 12px;
+    max-width: 320px;
   }
 
   .register-form h2 {
     font-size: 1.2rem;
-    margin-bottom: 15px;
   }
 
   .register-form input,
   .register-form select,
   .register-form button {
-    height: 44px;
-    font-size: 13px;
-  }
-
-  .register-form p {
-    font-size: 13px;
+    height: 42px;
+    font-size: 13.5px;
   }
 }
