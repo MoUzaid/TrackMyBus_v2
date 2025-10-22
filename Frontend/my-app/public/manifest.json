@@ -1,19 +1,20 @@
 {
   "short_name": "TrackMyBus",
-  "name": "TrackMyBus - Bus Tracking Application",
+  "name": "TrackMyBus",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "./favicon.ico",
+      "sizes": "64x64",
       "type": "image/x-icon"
     },
     {
-      "src": "Header.png",
+      "src": "./Header.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
