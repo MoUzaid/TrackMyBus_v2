@@ -10,12 +10,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-content">
-        <img
-          src="/Header.png" 
-          alt="Integral University Logo"
-          className="header-logo"
-        />
-        {/* Dynamic route based on admin */}
         <Link to={isAdmin ? "/Dashboard" : "/"} className="home-link">
           <h1 className="header-title">INTEGRAL UNIVERSITY</h1>
         </Link>
