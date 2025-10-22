@@ -43,7 +43,6 @@ pids/
 **/.env.*
 
 
-**/firebase.js
 **/firebase-messaging.js
 **/config/firebase*.js
 **/serviceAccountKey.json
