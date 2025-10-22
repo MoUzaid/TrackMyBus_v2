@@ -98,12 +98,13 @@ The system ensures accurate arrival notifications, complete admin control, and s
 ![Pickup Points](./screenshots/PickupPoints.png)
 
 ### 🧩 Admin Dashboard  
-![Admin Dashboard](./screenshots/AdminDasboard.png)
+![Admin Dashboard](./screenshots/AdminDashboard.png)
 
 ### 🆕 Create Bus  
 ![Create Bus](./screenshots/CreateBus.png)
 
 ### 👩‍🎓 View Students  
 ![View Students](./screenshots/ViewStudents.png)
+
 
 
