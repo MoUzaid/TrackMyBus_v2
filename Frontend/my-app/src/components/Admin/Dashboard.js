@@ -21,12 +21,22 @@ const Dashboard = () => {
   const [isAdmin] = state.isAdmin;
   const Navigate=useNavigate();
 
-  // ✅ Fetch all drivers
   useEffect(() => {
-if(!isAdmin) {
+    const timer = setTimeout(() => {
+      checkAdmin();
+    }, 5000);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
+  const checkAdmin = () => {
+    if(!isAdmin) {
   alert("Admin Access Denied");
   Navigate('/');
 }
+  };
+
+  useEffect(() => {
     const fetchDrivers = async () => {
       try {
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/driver/all-drivers`, {
