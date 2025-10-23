@@ -43,21 +43,22 @@ pids/
 **/.env.*
 
 
-**/firebase-messaging.js
+# Firebase config (private)
+**/firebase.js
 **/config/firebase*.js
 **/serviceAccountKey.json
 **/.firebase/
 .firebaserc
 firebase-debug.log
 
-
+# Email credentials (private)
 Backend/utils/emailConfig.js
 Backend/utils/emailCredentials.js
 
-
-**/public/firebase-messaging-sw.js
+# Service workers (public)
 **/public/service-worker.js
 **/public/workbox-*.js
+# Note: firebase-messaging-sw.js is intentionally NOT ignored as it needs to be public
 
 
 logs/
