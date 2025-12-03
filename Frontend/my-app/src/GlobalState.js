@@ -28,9 +28,11 @@ const [driverToken,setDriverToken]=useState("");
   // ----- Refresh Tokens -----
   const refreshUserToken = async () => {
     try {
+      console.log(isUserLogin);
       const res = await axios.get(`${process.env.REACT_APP_API_URL}/user/refresh_token`, {
         withCredentials: true,
       });
+      console.log(res.data.accessToken);
       setUserToken(res.data.accessToken);
     } catch (err) {
       console.error("Failed to refresh user token:", err.response?.data?.msg || err.message);
@@ -70,7 +72,7 @@ const [driverToken,setDriverToken]=useState("");
     }
   }, [user]);
 
-  // ----- Refresh Tokens on Page Load -----
+
   useEffect(() => {
     if (isUserLogin) refreshUserToken();
   }, [isUserLogin]);
@@ -79,7 +81,7 @@ const [driverToken,setDriverToken]=useState("");
     if (isDriverLogin) refreshDriverToken();
   }, [isDriverLogin]);
 
-  // ----- Fetch User Info -----
+
   useEffect(() => {
     const fetchUser = async () => {
       if (!userToken) return;

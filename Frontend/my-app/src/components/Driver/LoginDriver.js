@@ -6,8 +6,8 @@ import { GlobalState } from "../../GlobalState";
 
 const LoginDriver = () => {
   const state = useContext(GlobalState);
-  const [, setIsDriverLogin] = state.isDriverLogin;
-  const [, setDriver] = state.driver;
+  const [isDriverLogin, setIsDriverLogin] = state.isDriverLogin;
+  const [driver, setDriver] = state.driver;
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState({ text: "", type: "" });
   const navigate = useNavigate();
