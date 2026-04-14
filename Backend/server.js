@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -6,26 +6,42 @@ const cors = require('cors');
 const http = require('http');
 const { Server } = require('socket.io');
 const axios = require('axios');
-require('dotenv').config(); 
+require('dotenv').config();
 
 const userRoutes = require('./Routes/userRoutes');
 const driverRoutes = require('./Routes/driverRoutes');
 const busRoutes = require('./Routes/busRoutes');
 const admin = require('firebase-admin');
-const serviceAccount = require("./serviceAccountKey.json");
 const User = require('./Models/UserModel');
 const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+let serviceAccount;
+if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+  try {
+    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  } catch (err) {
+    console.error("Error parsing FIREBASE_SERVICE_ACCOUNT environment variable:", err);
+  }
+} else {
+  try {
+    serviceAccount = require("./serviceAccountKey.json");
+  } catch (err) {
+    console.warn("serviceAccountKey.json not found and FIREBASE_SERVICE_ACCOUNT is not set. Firebase Admin could not be initialized.");
+  }
+}
+
+if (serviceAccount) {
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+  });
+}
 
 const io = new Server(server, {
-  cors: { 
+  cors: {
     origin: ["http://localhost:4000", "https://track-my-bus-v2-bgfk.vercel.app"],
     methods: ["GET", "POST"],
-    credentials: true     
+    credentials: true
   }
 });
 
@@ -34,8 +50,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   origin: ["http://localhost:4000", "https://track-my-bus-v2-bgfk.vercel.app/"],
-  methods: ["GET", "POST","PUT", "DELETE"],
-  credentials: true     
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 
 
@@ -51,16 +67,16 @@ app.post("/send-multiple", async (req, res) => {
     const tokens = user.fcmTokens;
     const message = {
       notification: { title, body },
-      tokens, 
+      tokens,
     };
-  const response = await admin.messaging().sendEachForMulticast(message);
-  console.log("FCM response:", response);
-   response.responses.forEach((resp, idx) => {
+    const response = await admin.messaging().sendEachForMulticast(message);
+    console.log("FCM response:", response);
+    response.responses.forEach((resp, idx) => {
       if (!resp.success) {
-        user.fcmTokens.splice(idx, 1); 
+        user.fcmTokens.splice(idx, 1);
       }
     });
-  res.json({ success: true, response });
+    res.json({ success: true, response });
     res.json({ success: true, response });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
@@ -81,21 +97,21 @@ app.post('/api/ors/route', async (req, res) => {
     if (!orsApiKey) {
       throw new Error("Openrouteservice API key is missing.");
     }
-    
+
     console.log("Proxying request to Openrouteservice...");
-    
+
     const response = await axios.post(
       'https://api.openrouteservice.org/v2/directions/driving-car/geojson',
-      { coordinates: coordinates }, 
+      { coordinates: coordinates },
       {
         headers: {
-          'Authorization': orsApiKey, 
+          'Authorization': orsApiKey,
           'Content-Type': 'application/json'
         }
       }
     );
 
-    res.json(response.data); 
+    res.json(response.data);
 
   } catch (error) {
     console.error('Error in ORS proxy:', error.response ? error.response.data : error.message);
