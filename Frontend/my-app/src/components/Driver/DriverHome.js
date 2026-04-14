@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Socket from "../../Socket";
 import "../styles/Home.css";
 import { GlobalState } from "../../GlobalState";
 
 const DriverHome = () => {
   const state = useContext(GlobalState);
-  const [driverToken, setDriverToken] = state.driverToken;
-  const [driver, setDriver] = state.driver;
+  const [driver] = state.driver;
   const navigate = useNavigate();
 
   const handleClick = () => {

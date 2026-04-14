@@ -8,8 +8,8 @@ import "../styles/Auth.css";
 
 const LoginUser = () => {
   const state = useContext(GlobalState);
-  const [isUserLogin, setIsUserLogin] = state.isUserLogin;
-  const [user, setUser] = state.user;
+  const [, setIsUserLogin] = state.isUserLogin;
+  const [, setUser] = state.user;
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState({ text: "", type: "" });
   const navigate = useNavigate();

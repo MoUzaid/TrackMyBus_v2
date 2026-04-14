@@ -11,8 +11,8 @@ const messaging = getMessaging(firebaseApp);
 const RegisterUser = () => {
   const state = useContext(GlobalState);
   const [buses] = state.buses.buses;
-  const [isUserLogin, setIsUserLogin] = state.isUserLogin;
-  const [user, setUser] = state.user;
+  const [, setIsUserLogin] = state.isUserLogin;
+  const [, setUser] = state.user;
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({

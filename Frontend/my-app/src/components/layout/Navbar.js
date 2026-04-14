@@ -34,6 +34,7 @@ const Navbar = () => {
     } else {
       setIsDriverLogin(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, driver]);
 
   // ✅ Logout handlers

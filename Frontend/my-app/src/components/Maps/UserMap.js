@@ -33,15 +33,12 @@ const hiddenIcon = L.divIcon({
 
 const UserMap = () => {
   const state = useContext(GlobalState);
-  const [driver] = state.driver;
-  const [isDriverLogin, setIsDriverLogin] = state.isDriverLogin;
-  const [isUserLogin, setIsUserLogin] = state.isUserLogin;
   const [Coordinates, setCoordinates] = useState([26.8481, 80.9177]);
   const [currentEtaIndex, setCurrentEtaIndex] = useState(0);
   const [route, setRoute] = useState([]);
   const [pickupETAs, setPickupETAs] = useState([]);
   const [pickupMarkers, setPickupMarkers] = useState([]);
-  const [user, setUser] = state.user;
+  const [user] = state.user;
   const [sentNotifications, setSentNotifications] = useState({
     name: [],
     count: 0,
@@ -72,6 +69,7 @@ const UserMap = () => {
     Socket.on("receiveInfo", handleReceiveInfo);
     console.log("Received Info:", Coordinates);
     return () => Socket.off("receiveInfo", handleReceiveInfo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
   const updateRouteAndETA = async () => {
@@ -123,6 +121,7 @@ const UserMap = () => {
     updateRouteAndETA(); // initial call
     const intervalId = setInterval(updateRouteAndETA, 10000); // every 10s
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Coordinates, pickupMarkers]);
 
   // 4️⃣ Rotate ETA tooltip (same as MyMap)
@@ -178,6 +177,7 @@ const UserMap = () => {
         }));
       }
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pickupETAs]);
 
   return (

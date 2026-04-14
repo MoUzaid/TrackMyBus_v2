@@ -7,8 +7,8 @@ import { GlobalState } from "../../GlobalState";
 const RegisterDriver = () => {
   const state = useContext(GlobalState);
   const [buses] = state.buses.buses;
-  const [isDriverLogin, setIsDriverLogin] = state.isDriverLogin;
-  const [driver, setDriver] = state.driver;
+  const [, setIsDriverLogin] = state.isDriverLogin;
+  const [, setDriver] = state.driver;
 
   const [formData, setFormData] = useState({
     name: "",

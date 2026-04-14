@@ -20,13 +20,13 @@ const Dashboard = () => {
   const [drivers, setDrivers] = useState([]);
   const [isAdmin] = state.isAdmin;
   const Navigate=useNavigate();
-
   useEffect(() => {
     const timer = setTimeout(() => {
       checkAdmin();
     }, 5000);
 
     return () => clearTimeout(timer); 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const checkAdmin = () => {

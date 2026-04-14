@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, CircleMarker, Tooltip, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import axios from "axios"
 import socket from "../../Socket";
-import { GlobalState } from "../../GlobalState";
+
 import { useParams } from "react-router-dom";
 
 const RecenterMap = ({ coords }) => {
@@ -33,17 +33,12 @@ const hiddenIcon = L.divIcon({
 });
 
 const UserMap = () => {
-  const state = useContext(GlobalState);
-  const [driver] = state.driver;
-  const [isDriverLogin, setIsDriverLogin] = state.isDriverLogin;
-  const [isUserLogin, setIsUserLogin] = state.isUserLogin;
+
   const [Coordinates, setCoordinates] = useState([26.8481, 80.9177]);
   const [currentEtaIndex, setCurrentEtaIndex] = useState(0);
   const [route, setRoute] = useState([]);
   const [pickupETAs, setPickupETAs] = useState([]);
   const [pickupMarkers, setPickupMarkers] = useState([]);
-  const [user, setUser] = state.user;
-  const [data, setData] = useState({ name: '', newBusId: '' });
  const params = useParams();
  const busId=params.busId;
  console.log(params.busId);
@@ -126,6 +121,7 @@ const UserMap = () => {
     updateRouteAndETA(); // initial call
     const intervalId = setInterval(updateRouteAndETA, 10000); // every 10s
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Coordinates, pickupMarkers]);
 
   // 4️⃣ Rotate ETA tooltip (same as MyMap)

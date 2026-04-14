@@ -145,6 +145,7 @@ const MyMap = () => {
     updateRouteAndETA(); // initial call
     const intervalId = setInterval(updateRouteAndETA, 10000); // every 10s
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Coordinates, pickupMarkers]);
 
   // 5️⃣ Rotate ETA tooltip

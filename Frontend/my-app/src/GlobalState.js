@@ -75,10 +75,12 @@ const [driverToken,setDriverToken]=useState("");
 
   useEffect(() => {
     if (isUserLogin) refreshUserToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isUserLogin]);
 
   useEffect(() => {
     if (isDriverLogin) refreshDriverToken();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDriverLogin]);
 
 
