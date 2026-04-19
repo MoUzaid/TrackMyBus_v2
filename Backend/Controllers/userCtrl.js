@@ -143,7 +143,8 @@ forgotPassword: async (req, res) => {
       { expiresIn: "15m" }
     );
   console.log(email);
-    const resetLink = `https://track-my-bus-v2.vercel.app/reset-password/${resetToken}`;
+    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:4000";
+    const resetLink = `${frontendUrl}/reset-password/${resetToken}`;
 
     await sendEmail(
       email,

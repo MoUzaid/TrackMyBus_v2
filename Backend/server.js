@@ -37,9 +37,10 @@ if (serviceAccount) {
   });
 }
 
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:4000";
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:4000", "https://track-my-bus-v2-bgfk.vercel.app"],
+    origin: ["http://localhost:4000", FRONTEND_URL],
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -49,7 +50,7 @@ const io = new Server(server, {
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: ["http://localhost:4000", "https://track-my-bus-v2-bgfk.vercel.app/"],
+  origin: ["http://localhost:4000", FRONTEND_URL],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
