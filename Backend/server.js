@@ -39,7 +39,7 @@ if (serviceAccount) {
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:4000", "https://track-my-bus-v2-bgfk.vercel.app"],
+    origin: ["http://localhost:4000", "https://track-my-bus-v2-j21l.vercel.app"],
     methods: ["GET", "POST"],
     credentials: true
   }
