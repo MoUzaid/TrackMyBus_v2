@@ -38,22 +38,32 @@ if (serviceAccount) {
 }
 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:4000";
+const allowedOrigins = [
+  "http://localhost:4000", 
+  FRONTEND_URL, 
+  "https://track-my-bus-v2-j21l.vercel.app"
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+};
+
 const io = new Server(server, {
-  cors: {
-    origin: ["http://localhost:4000", FRONTEND_URL],
-    methods: ["GET", "POST"],
-    credentials: true
-  }
+  cors: corsOptions
 });
 
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  origin: ["http://localhost:4000", FRONTEND_URL],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(cors(corsOptions));
 
 
 

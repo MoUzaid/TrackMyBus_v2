@@ -14,4 +14,6 @@ router.put('/update',authDriver, driverCtrl.updateBusId);
 router.post("/forgot-password", driverCtrl.forgotPassword);
 router.post("/reset-password", driverCtrl.resetPassword);
 router.get("/all-drivers",authUser,authAdmin, driverCtrl.getAllDriver); 
+router.get('/bus/:busId', authUser, driverCtrl.getDriverByBusId);
+
 module.exports = router;

@@ -119,6 +119,17 @@ const driverCtrl = {
             return res.status(500).json({ msg: err.message });
         }
     },
+    getDriverByBusId: async (req, res) => {
+        try {
+            const { busId } = req.params;
+            const driver = await Driver.findOne({ busId: Number(busId) }).select('-password');
+            if (!driver) return res.status(404).json({ msg: "Driver not found for this bus" });
+            
+            return res.json(driver);
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
     updateBusId:async(req,res)=>{
         try{
   const { busId, busNo} = req.body;

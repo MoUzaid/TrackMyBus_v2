@@ -24,9 +24,14 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
 
-  const notificationTitle = payload.notification.title;
+  if (payload.notification) {
+    console.log('[firebase-messaging-sw.js] Payload contains notification. Let Firebase handle it automatically.');
+    return;
+  }
+
+  const notificationTitle = payload.data?.title || 'TrackMyBus Notification';
   const notificationOptions = {
-    body: payload.notification.body,
+    body: payload.data?.body || '',
     icon: '/favicon.ico',
     badge: '/favicon.ico',
     tag: 'notification-' + Date.now(),

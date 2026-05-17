@@ -43,13 +43,13 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centers vertically */
   align-items: flex-start;
   padding-right: 5vw;
   position: relative;
   z-index: 1;
   min-width: 300px;
-  margin-bottom:40vh;
+  align-self: flex-start;
+  margin-top: 8vh;
 }
 
 .hero-title {
@@ -213,4 +213,60 @@
     font-size: 0.9rem;
     padding: 0.7rem 0.9rem;
   }
+}
+
+/* 🚌 Driver Compact Card */
+.driver-compact-card {
+  margin-top: 3rem;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+}
+
+.driver-compact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.driver-compact-avatar {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #0073e6, #004080);
+  color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 12px rgba(0, 115, 230, 0.3);
+  flex-shrink: 0;
+}
+
+.driver-compact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.driver-compact-info h3 {
+  color: #003366;
+  margin: 0 0 0.3rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.driver-compact-info p {
+  color: #333;
+  font-size: 0.9rem;
+  margin: 0.1rem 0;
+  font-weight: 600;
 }

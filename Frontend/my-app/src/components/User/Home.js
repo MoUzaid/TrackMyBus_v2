@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Socket from "../../Socket";
 import "../styles/Home.css";
@@ -7,7 +8,27 @@ import { GlobalState } from "../../GlobalState";
 const Home = () => {
   const state = useContext(GlobalState);
   const [user] = state.user;
+  const [userToken] = state.userToken;
   const navigate = useNavigate();
+
+  const [driverInfo, setDriverInfo] = useState(null);
+
+  useEffect(() => {
+    const fetchDriverInfo = async () => {
+      if (user.busId && userToken) {
+        try {
+          const res = await axios.get(`${process.env.REACT_APP_API_URL}/driver/bus/${user.busId}`, {
+            headers: { Authorization: userToken }
+          });
+          setDriverInfo(res.data);
+        } catch (err) {
+          console.error("Error fetching driver info:", err.response?.data?.msg || err.message);
+        }
+      }
+    };
+    fetchDriverInfo();
+  }, [user.busId, userToken]);
+
 
   const handleClick = () => {
     if (user.busId) {
@@ -25,6 +46,17 @@ const Home = () => {
           <button className="hero-btn" onClick={handleClick}>
             🚍 Start Tracking
           </button>
+
+          {driverInfo && (
+            <div className="driver-compact-card">
+              <div className="driver-compact-avatar">🚌</div>
+              <div className="driver-compact-info">
+                <h3>{driverInfo.name} (Driver)</h3>
+                <p>Bus No: {driverInfo.busNo}</p>
+                <p>Phone: {driverInfo.phoneNumber}</p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Right Section */}
@@ -56,7 +88,7 @@ const Home = () => {
                 <strong>Enroll:</strong> {user.enroll}
               </p>
               <p>
-                <strong>Pickup Location:</strong> {user.pickupLocation} 
+                <strong>Pickup Location:</strong> {user.pickupLocation}
               </p>
             </div>
           </div>

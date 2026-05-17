@@ -19,6 +19,8 @@ import Forgot from './components/Driver/Forgot';
 import Reset from './components/Driver/Reset';
 import AdminMap from './components/Maps/AdminMap';
 
+import { AdminRoute, UserRoute, DriverRoute } from './components/ProtectedRoute';
+
 const Pages = () => {
   return (
     <div>
@@ -27,20 +29,32 @@ const Pages = () => {
       <Route path="/login" element={<LoginUser />} />
       <Route path="/driver-login" element={<LoginDriver />} />
       <Route path="/register" element={<RegisterUser />} />
-      <Route path="/driver-home" element={<DriverHome/>}/>
       <Route path="/driver-register" element={<RegisterDriver />} />
-      <Route path="/Dashboard" element={<Dashboard/>}/>
-      <Route path="/view-students/:busId" element={<Students/>}/>
-      <Route path="/pickup_points/:id" element={<PickupPoints/>}/>
-      <Route path="/map" element={<MyMap/>}/>
-      <Route path="/user-map" element={<UserMap/>}/>
-      <Route path="/create-bus" element={<CreateBus/>}/>
-      <Route path="/edit-bus/:busId" element={<EditBus/>}/>
       <Route path="/forgot-password" element={<ForgotPass/>}/>
       <Route path="/reset-password/:token" element={<ResetPass/>}/>
       <Route path="/forgot-password-driver" element={<Forgot/>}/>
       <Route path="/reset-password-driver/:token" element={<Reset/>}/>
-      <Route path="/admin_map/:busId" element={<AdminMap/>}/>
+
+      {/* Protected Admin Routes */}
+      <Route element={<AdminRoute />}>
+        <Route path="/Dashboard" element={<Dashboard/>}/>
+        <Route path="/view-students/:busId" element={<Students/>}/>
+        <Route path="/pickup_points/:id" element={<PickupPoints/>}/>
+        <Route path="/create-bus" element={<CreateBus/>}/>
+        <Route path="/edit-bus/:busId" element={<EditBus/>}/>
+        <Route path="/admin_map/:busId" element={<AdminMap/>}/>
+      </Route>
+
+      {/* Protected User Routes */}
+      <Route element={<UserRoute />}>
+        <Route path="/user-map" element={<UserMap/>}/>
+      </Route>
+
+      {/* Protected Driver Routes */}
+      <Route element={<DriverRoute />}>
+        <Route path="/driver-home" element={<DriverHome/>}/>
+        <Route path="/map" element={<MyMap/>}/>
+      </Route>
     </Routes>
     </div>
   )
