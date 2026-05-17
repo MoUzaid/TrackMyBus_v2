@@ -41,7 +41,8 @@ const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:4000";
 const allowedOrigins = [
   "http://localhost:4000", 
   FRONTEND_URL, 
-  "https://track-my-bus-v2-j21l.vercel.app"
+  "https://track-my-bus-v2-j21l.vercel.app",
+  "https://track-my-bus-v2.vercel.app"
 ];
 
 const corsOptions = {

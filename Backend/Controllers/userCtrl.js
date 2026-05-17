@@ -63,8 +63,8 @@ registerUser: async (req, res) => {
 res.cookie("refreshToken", refreshToken, {
   httpOnly: true,
   path: "/user/refresh_token",
-  secure: false,     
-  sameSite: "lax",     
+  secure: true,     
+  sameSite: "none",     
   maxAge: 7 * 24 * 60 * 60 * 1000,
 });
         const userResponse = newUser.toObject();
@@ -111,8 +111,8 @@ refreshToken: async (req, res) => {
           res.cookie("refreshToken", refreshToken, {
   httpOnly: true,
   path: "/user/refresh_token",
-  secure: false,       
-  sameSite: "lax",     
+  secure: true,       
+  sameSite: "none",     
   maxAge: 7 * 24 * 60 * 60 * 1000,
 });
 

@@ -49,6 +49,8 @@ const driverCtrl = {
             res.cookie('refreshToken', refreshToken, {
                 httpOnly: true,
                 path: '/driver/refresh_token',
+                secure: true,
+                sameSite: 'none',
                 maxAge: 7 * 24 * 60 * 60 * 1000
             });
 
@@ -76,6 +78,9 @@ const driverCtrl = {
             res.cookie('refreshToken', refreshToken, {
                 httpOnly: true,
                 path: '/driver/refresh_token',
+                secure: true,
+                sameSite: 'none',
+                maxAge: 7 * 24 * 60 * 60 * 1000
             });
 
             return res.json({ msg: 'Driver logged in successfully', accessToken, driver });
