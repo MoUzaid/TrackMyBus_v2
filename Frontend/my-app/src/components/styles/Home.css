@@ -255,6 +255,7 @@
 .driver-compact-info {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .driver-compact-info h3 {
